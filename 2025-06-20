@@ -1,0 +1,12 @@
+layout:default
+title:"题单1"
+date：2025-06-20
+##题目：输出
+
+###代码实现(C)：
+#include<stdio.h>
+int main()
+{
+    printf("zhe\nshi\nyi\ndao\nqian\ndao\nti\n");
+    return 0;
+}
