@@ -1,0 +1,24 @@
+layout:default
+date:2025-06-20
+##题目：开学时间延期N天，请问开学日期是星期几
+##代码实现(c)：
+'''
+#include <stdio.h>
+ 
+int main() {
+    int X, N;
+    scanf("%d %d", &X, &N);
+    int sum = X + N; 
+    while (sum > 7) 
+    { 
+        sum -= 7;
+    }
+     
+    printf("%d\n", sum);
+    return 0;
+}
+
+##测试用例:5 9
+           7
+##收获：一开始 (N%7+X)%7  刚发现为7的整数时就会取到零  另一种可以利用取余\text{新星期} = (X + N - 1) \% 7 + 1，
+                                                        
