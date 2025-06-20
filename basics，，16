@@ -1,0 +1,19 @@
+layout:default
+date:2025-06-20
+##题目：计算两整数的整数商于余数
+##代码实现(c)：
+'''
+#include<stdio.h>
+int main()
+{
+    int a,b,c,d;
+    scanf("%d%d",&a,&b);
+    c=a/b;
+    d=a%b;
+    printf("%d %d",c,d);
+    return 0;
+            
+}
+##测试用例:15 2
+           7 1
+                                                        
