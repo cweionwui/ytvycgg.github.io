@@ -1,0 +1,19 @@
+layout:default
+date:2025-06-20
+##题目：浮点除法
+##代码实现(c)：
+'''
+#include<stdio.h>
+int main()
+{
+    int a,b;
+    float c;
+    scanf("%d%d",&a,&b);
+    c=(a*1.0)/b;
+    printf("%.3f",c);
+    return 0;
+            
+}
+##测试用例:5 2
+          2.500
+                                                        
