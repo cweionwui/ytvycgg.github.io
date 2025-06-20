@@ -1,0 +1,99 @@
+layout:default
+date:2025-06-20
+##题目：排列式，7254是一个不寻常的数，因为它可以表示为7254 = 39 x 186，这个式子中1~9每个数字正好出现一次
+输出所有这样的不同的式子（乘数交换被认为是相同的式子）结果小的先输出；结果相同的，较小的乘数较小的先输出。
+##代码实现(c)：
+'''
+#include <stdio.h>
+#include <stdbool.h>
+
+// 定义结果的结构体
+typedef struct {
+    int m;
+    int a;
+    int b;
+} Result;
+
+// 检查1-9只出现一次
+bool check(int a, int b, int c) {
+    int digits[10] = {0};
+    
+    int nums[3] = {a, b, c};
+    for (int i = 0; i < 3; i++) {
+        int num = nums[i];
+        while (num > 0) {
+            int d = num % 10;
+            if (d == 0) return false;
+            digits[d]++;
+            num /= 10;
+        }
+    }
+    
+    for (int i = 1; i <= 9; i++) {
+        if (digits[i] != 1) return false;
+    }
+    return true;
+}
+
+int main() {
+    Result results[20]; // 使用定义的结构体类型
+    int count = 0;
+    
+    // 1. 两位数 × 三位数
+    for (int a = 10; a <= 99; a++) {
+        for (int b = 100; b <= 999; b++) {
+            int m = a * b;
+            if (m < 1000 || m > 9999) continue;
+            if (check(a, b, m)) {
+                results[count].m = m;
+                results[count].a = a;
+                results[count].b = b;
+                count++;
+            }
+        }
+    }
+    
+    // 2. 一位数 × 四位数
+    for (int a = 2; a <= 9; a++) {
+        for (int b = 1000; b <= 9999 / a; b++) {
+            int m = a * b;
+            if (check(a, b, m)) {
+                results[count].m = m;
+                results[count].a = a;
+                results[count].b = b;
+                count++;
+            }
+        }
+    }
+    
+    // 冒泡排序
+    for (int i = 0; i < count - 1; i++) {
+        for (int j = 0; j < count - i - 1; j++) {
+            
+            if (results[j].m > results[j+1].m || 
+                (results[j].m == results[j+1].m && results[j].a > results[j+1].a)) {
+              
+                Result temp = results[j];
+                results[j] = results[j+1];
+                results[j+1] = temp;
+            }
+        }
+    }
+  
+    for (int i = 0; i < count; i++) {
+        printf("%d = %d x %d\n", results[i].m, results[i].a, results[i].b);
+    }
+    
+    return 0;
+}
+##测试用例:
+
+
+##收获：因为看到输出知道第一个数只能是四位数，后面两个乘数是一位乘四位或两位*三位，想在开始定义让A> B>C,让数乘交换小的在前面a是前面的四位数，
+看过标准代码好像不行在思考1~9每个数字出现一遍的时候想起python老师讲过一个在数组里找两个数相加等于目标值里面讲到哈希表，把遍历过的元素存在表里就只用遍历一遍数组，
+想能不能把ABc的各位上数字也存在里面，但是下面怎么把他们从1到9对应上去是借助了ai，提供的思路是数字存入数组的时候先去重，看长度是否为9，排序是否为1~9，用bool来判断数字组合(1~9)是不是正确的
+而且漏了一个0这个重要的筛选条件，定义一个结构体Equation(存储乘积、乘数a、乘数b)，在定义一个检查函数：检查三个数是否是1-9各出现一次（且没有0）
+.check()函数验证:用计数数组统计1~9，9个数字频率，排除0且确保1-9只出现一次，又利用了枚举顺序自然排序(乘积升序→小乘数升序)节省去存储排序。这道题一有一半以上是借用了ai,
+写完以后也才勉强掌握，定义的结构体是没有想到的，和在枚举组合的时候遍缩小了一点范围，历两位数×三位数（10-99 × 100-999，遍历一位数×四位数（2-9 × 1000-9999）
+##bug1:因为是完全按照AI给的答案来做的没有debug过程，除了在最后忘记定义结果的结构体
+                                                        
