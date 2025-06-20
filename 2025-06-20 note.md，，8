@@ -1,0 +1,12 @@
+layout:default
+date:2025-06-2
+##题目：输出名言
+##代码实现(c)：
+'''
+#include<stdio.h>
+int main()
+{
+    printf("\"Genius is 1%% inspiration and 99%% perspiration.\"");
+    return 0;
+}
+
