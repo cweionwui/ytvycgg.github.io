@@ -1,0 +1,17 @@
+layout:default
+date:2025-06-20
+##题目：输入两个十进制的a,b．输出a+b的十六进制表示.
+##代码实现(c)：
+'''
+#include <stdio.h>
+
+int main() 
+{
+    int a, b;
+    scanf("%d %d", &a, &b);
+    printf("%x\n", a + b);
+    return 0;
+}
+##测试用例:7 8
+            f
+                                                        
