@@ -1,0 +1,14 @@
+layout:default
+date:2025-06-2
+##题目：牛牛学说话之整数
+##代码实现(c)：
+'''
+#include<stdio.h>
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    printf("%d",n);
+    return 0;
+     
+}
