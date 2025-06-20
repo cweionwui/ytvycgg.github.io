@@ -1,0 +1,15 @@
+layout:default
+date:2025-06-2
+##题目：输出c和c++的hello world代码
+##代码实现(c)：
+'''
+#include<stdio.h>
+int main()
+{
+    printf("printf(\"Hello world!\\n\"); \n");
+    printf("cout << \"Hello world!\" << endl; \n");
+    return 0;
+}
+
+
+##收获：转义字符中'\''为单引号  '\"' 双引号 '\t'制表符 '\0'字符串结束符 
