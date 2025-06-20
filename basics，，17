@@ -1,0 +1,19 @@
+layout:default
+date:2025-06-20
+##题目：推算明天星期几
+##代码实现(c)：
+'''
+#include<stdio.h>
+int main()
+{
+    int d,a;
+    scanf("%d",&d);
+    a=d%7+1;
+    printf("%d",a);
+    return 0;
+            
+}
+##测试用例:1
+           2
+##收获：当昨天是星期天的时候下次星期一，利用取余避免0
+                                                        
