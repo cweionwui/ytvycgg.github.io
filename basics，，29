@@ -1,0 +1,19 @@
+layout:default
+date:2025-06-21
+##题目：求三角形周长与面积
+##代码实现(c)：
+'''
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    float a,b,c,p;
+    scanf("%f %f %f",&a,&b,&c);
+    p=(a+b+c)/2;
+    printf("circumference=%.2f area=%.2f\n",a+b+c,sqrt(p*(p-a)*(p-b)*(p-c)));
+    return 0;
+}
+##bug1:没注意，把数学里的算法带到编程里了sqrt(p(p-a)(p-b)(p-c)))，sqrt是数学库函数包含在<math.h>
+       变量类型错了，最后输出结果小数，应该为double 或者float类型
+                                                        
+##收获：海伦公式半周长  p = \frac{a+b+c}{2}，S = \sqrt{p(p-a)(p-b)(p-c)}
