@@ -1,0 +1,25 @@
+layout:default
+date:2025-06-21
+##题目：人活了多少秒
+##代码实现(c)：
+'''
+#include<stdio.h>
+int main()
+{
+    int  a;
+    scanf("%d",&a);
+    printf("%lld",a*31560000LL);
+    return 0;
+    
+}
+
+##bug1: printf("%d",a*3.156e7);犯了低级的格式不匹配，3.156e7是double类型
+int类型范围是32位的+-2 1074，约21亿 - 题目中年龄最大200，秒数：2003.156 *10^7 = 6312000000 ，远超过int最大值，导致 溢出！！，强制转换
+为int结果会变成错误值（如负数或随机数）
+。 int  a;
+    scanf("%d",&a);
+    printf("%d",(int)(a*3.156e7));
+修改：用long long存储结果，把3.156e7改成31560000LL确保是long long类型
+
+                                                        
+##收获：指数形式：数字，e+—指数
