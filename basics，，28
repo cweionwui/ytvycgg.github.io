@@ -1,0 +1,16 @@
+layout:default
+date:2025-06-21
+##题目：计算长方体的表面积与体积
+##代码实现(c)：
+'''
+#include<stdio.h>
+int main()
+{
+    int a,b,c;
+    scanf("%d %d %d",&a,&b,&c);
+    printf("%d\n%d\n",(a*b+b*c+a*c)*2,a*b*c);
+    return 0;
+}
+##bug1:
+                                                        
+##收获：
