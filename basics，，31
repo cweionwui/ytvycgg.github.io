@@ -1,0 +1,19 @@
+layout:default
+date:2025-06-21
+##题目：将给定的秒数转换为对应的小时，分钟，秒
+##代码实现(c)：
+'''
+#include<stdio.h>
+int main()
+{
+    int a,s,f,m;
+    scanf("%d",&a);
+    s=a/3600;f=(a-s*3600)/60;m=a-s*3600-f*60;
+    printf("%d %d %d",s,f,m);
+    return 0;
+    
+    
+}
+##bug1:
+                                                        
+##收获：当成小学数学题来做
