@@ -1,0 +1,16 @@
+layout:default
+date:2025-06-21
+##题目：求矩形的周长与面积
+##代码实现(c)：
+'''
+#include<stdio.h>
+int main()
+{
+    int a,b;
+    scanf("%d %d",&a,&b);
+    printf("%d\n%d\n",(a+b)*2,a*b);
+    return 0;
+}
+##bug1:
+                                                        
+##收获：
