@@ -1,0 +1,17 @@
+layout:default
+date:2025-06-21
+##题目：求梯形面积
+##代码实现(c)：
+'''
+#include<stdio.h>
+int main()
+{
+    int up,down,height;
+    scanf("%d %d %d",&up,&down,&height);
+    printf("%.3f\n",(up+down)*height/2.0);
+    return 0;
+}
+
+##bug1:昏头写成了printf("(up+down)*height/2");，在双引号里“”会被当成普通文本输出，输出数据 在前面%d，
+                                                        
+##收获：
